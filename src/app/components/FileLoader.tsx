@@ -45,7 +45,6 @@ const FileLoader = (props: IFileLoaderProps) => {
     <>
       <input
         type="file"
-        accept=".txt"
         id="saveFileInput"
         className="hidden"
         onChange={(e) => {
@@ -61,7 +60,6 @@ const FileLoader = (props: IFileLoaderProps) => {
       />
       <input
         type="file"
-        accept=".txt"
         id="saveFileInputUnencrypted"
         className="hidden"
         onChange={(e) => {

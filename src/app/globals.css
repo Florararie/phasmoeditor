@@ -2,8 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-void: #0b0a11;
+  --color-panel: #161320;
+  --color-panel-2: #1d1929;
+  --color-line: #332c46;
+  --color-mist: #a599bd;
+  --color-paper: #f0ecf7;
+  --color-signal: #ae8bff;
+  --color-alert: #ff5c6c;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-paper);
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-void);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-panel);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-mist);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink {
+    animation: none !important;
+  }
 }

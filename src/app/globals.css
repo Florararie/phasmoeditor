@@ -11,6 +11,10 @@
   --color-paper: #f0ecf7;
   --color-signal: #ae8bff;
   --color-alert: #ff5c6c;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 html {

@@ -4,6 +4,7 @@ import crypto from 'crypto'
 import { Buffer } from 'buffer'
 import { Dispatch, SetStateAction } from 'react'
 import { parseES3 } from '../lib/es3json'
+import { ensurePrestigeFields } from '../lib/prestige'
 
 interface IFileLoaderProps {
   stateSetter: Dispatch<SetStateAction<any>>
@@ -32,7 +33,7 @@ const FileLoader = (props: IFileLoaderProps) => {
       // (e.g. split 64-bit item IDs like `{"low":...,"high":...}:{...}`,
       // seen in fields like LocalPlayerOutfit). parseES3 understands both;
       // plain JSON.parse throws on real save files that use them.
-      props.stateSetter(parseES3(decodedText))
+      props.stateSetter(ensurePrestigeFields(parseES3(decodedText)))
     } catch (e) {
       console.error(e)
       alert(
@@ -66,7 +67,7 @@ const FileLoader = (props: IFileLoaderProps) => {
           if (!e.target.files?.[0]) return
           const fileReader = new FileReader()
           fileReader.onload = (ev: ProgressEvent<FileReader>) => {
-            props.stateSetter(JSON.parse(ev.target?.result as string))
+            props.stateSetter(ensurePrestigeFields(JSON.parse(ev.target?.result as string)))
           }
           fileReader.readAsText(e.target.files[0])
         }}

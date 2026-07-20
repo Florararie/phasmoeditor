@@ -150,7 +150,7 @@ function LoadedState({
         />
       </div>
 
-      <Editor data={saveData} />
+      <Editor data={saveData} onChange={setSaveData} />
     </div>
   )
 }
@@ -160,7 +160,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex items-center justify-center p-4 sm:p-8">
-      <div className="relative w-full max-w-4xl">
+      <div className="relative w-full max-w-5xl">
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-scanlines opacity-40" />
         <div className="relative rounded-2xl border border-line bg-panel shadow-2xl shadow-black/60 overflow-hidden">
           <header className="flex items-center justify-between gap-4 border-b border-line bg-panel2 px-5 py-4">
